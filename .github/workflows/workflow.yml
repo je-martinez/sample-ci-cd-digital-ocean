@@ -60,12 +60,12 @@ jobs:
       #- name: Reference the secret you just uploaded as an imagePullSecrets
       #  run: "kubectl patch serviceaccount default -p '{\"imagePullSecrets\": [{\"name\": \"registry-<your-registry-name>`\"}]}'"
 
-      - name: Set up kubectl
-        uses: matootie/dokube@v1.4.0
-        with:
-          personalAccessToken: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          clusterName: ${{ secrets.CLUSTER_NAME}}
-          version: "1.26.1"
+      # - name: Set up kubectl
+      #   uses: matootie/dokube@v1.4.0
+      #   with:
+      #     personalAccessToken: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      #     clusterName: ${{ secrets.CLUSTER_NAME}}
+      #     version: "1.26.1"
 
       - name: Deploy to DigitalOcean Kubernetes
         run: kubectl apply -f $GITHUB_WORKSPACE/config/deployment.yml
